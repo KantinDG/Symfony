@@ -1,8 +1,12 @@
 
-hello_the_world:
-    path:     /hello-world
+oc_platform_home:
+    path:      /platform
     defaults: { _controller: OCPlatformBundle:Advert:index }
 
-bye_bye_world:
-    path:     /bye-bye-world
-    defaults: {_controller: OCPlatformBundle:Advert:exit }
+oc_platform_view:
+    path:      /platform/advert/{id}
+    defaults: { _controller: OCPlatformBundle:Advert:view }
+
+oc_platform_add:
+    path:      /platform/add
+    defaults: { _controller: OCPlatformBundle:Advert:add }

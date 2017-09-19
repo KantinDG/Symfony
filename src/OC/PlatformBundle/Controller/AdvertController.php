@@ -14,11 +14,4 @@ class AdvertController extends Controller {
 			->render('OCPlatformBundle:Advert:index.html.twig', array('nom' => 'Kantin'));
 		return new Response($content);
 	}
-
-	public function exitAction() {
-		$content = $this
-			->get('templating')
-			->render('OCPlatformBundle:Advert:exit.html.twig', array('name' => 'Kantin'));
-		return new Response($content);
-	}
 }
