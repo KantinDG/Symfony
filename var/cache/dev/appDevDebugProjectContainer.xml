@@ -20,6 +20,7 @@
       <parameter key="DebugBundle">Symfony\Bundle\DebugBundle\DebugBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
+      <parameter key="DoctrineFixturesBundle">Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle</parameter>
       <parameter key="SensioGeneratorBundle">Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle</parameter>
       <parameter key="WebServerBundle">Symfony\Bundle\WebServerBundle\WebServerBundle</parameter>
     </parameter>
@@ -78,6 +79,11 @@
         <parameter key="parent">null</parameter>
         <parameter key="path">C:\wamp64\www\Symfony\vendor\sensio\distribution-bundle</parameter>
         <parameter key="namespace">Sensio\Bundle\DistributionBundle</parameter>
+      </parameter>
+      <parameter key="DoctrineFixturesBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">C:\wamp64\www\Symfony\vendor\doctrine\doctrine-fixtures-bundle</parameter>
+        <parameter key="namespace">Doctrine\Bundle\FixturesBundle</parameter>
       </parameter>
       <parameter key="SensioGeneratorBundle" type="collection">
         <parameter key="parent">null</parameter>
@@ -429,6 +435,7 @@
       <parameter key="console.command.doctrine_bundle_doctrinebundle_command_proxy_updateschemadoctrinecommand">doctrine.schema_update_command</parameter>
       <parameter key="console.command.doctrine_bundle_doctrinebundle_command_proxy_validateschemacommand">doctrine.schema_validate_command</parameter>
       <parameter key="console.command.sensiolabs_security_command_securitycheckercommand">sensio_distribution.security_checker.command</parameter>
+      <parameter key="console.command.doctrine_bundle_fixturesbundle_command_loaddatafixturesdoctrinecommand">doctrine.fixtures_load_command</parameter>
       <parameter key="console.command.symfony_bundle_webserverbundle_command_serverruncommand">console.command.symfony_bundle_webserverbundle_command_serverruncommand</parameter>
       <parameter key="console.command.symfony_bundle_webserverbundle_command_serverstartcommand">console.command.symfony_bundle_webserverbundle_command_serverstartcommand</parameter>
       <parameter key="console.command.symfony_bundle_webserverbundle_command_serverstopcommand">console.command.symfony_bundle_webserverbundle_command_serverstopcommand</parameter>
@@ -621,7 +628,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>zlt2RK4Z5kLZuVSCMblnET</argument>
+      <argument>bc1AnVsgywYhCxUcJp-TmT</argument>
       <argument>C:\wamp64\www\Symfony\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -631,7 +638,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>zlt2RK4Z5kLZuVSCMblnET</argument>
+      <argument>bc1AnVsgywYhCxUcJp-TmT</argument>
       <call method="setLogger">
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       </call>
@@ -1388,14 +1395,6 @@
       </call>
       <call method="addListener">
         <argument>kernel.request</argument>
-        <argument type="collection">
-          <argument type="service" id="debug.debug_handlers_listener"/>
-          <argument>configure</argument>
-        </argument>
-        <argument>2048</argument>
-      </call>
-      <call method="addListener">
-        <argument>console.command</argument>
         <argument type="collection">
           <argument type="service" id="debug.debug_handlers_listener"/>
           <argument>configure</argument>
@@ -2181,12 +2180,12 @@
     </service>
     <service id="security.authentication.listener.anonymous.main" class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
       <argument type="service" id="security.token_storage"/>
-      <argument>59fb2da2434518.40544175</argument>
+      <argument>59fb3a5feb7216.37332513</argument>
       <argument type="service" id="monolog.logger.security" on-invalid="null"/>
       <argument type="service" id="security.authentication.manager"/>
     </service>
     <service id="security.authentication.provider.anonymous.main" class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-      <argument>59fb2da2434518.40544175</argument>
+      <argument>59fb3a5feb7216.37332513</argument>
     </service>
     <service id="security.exception_listener.main" class="Symfony\Component\Security\Http\Firewall\ExceptionListener" public="false">
       <argument type="service" id="security.token_storage"/>
@@ -3054,6 +3053,11 @@
       <argument type="service" id="security.authorization_checker" on-invalid="null"/>
     </service>
     <service id="sensio_framework_extra.security.expression_language.default" class="Sensio\Bundle\FrameworkExtraBundle\Security\ExpressionLanguage" public="false"/>
+    <service id="OC_platform.antispam" class="OC\PlatformBundle\Antispam\OCAntispam">
+      <argument type="service" id="swiftmailer.mailer.default"/>
+      <argument>en</argument>
+      <argument>150</argument>
+    </service>
     <service id="twig.extension.dump" class="Symfony\Bridge\Twig\Extension\DumpExtension" public="false">
       <tag name="twig.extension"/>
       <argument type="service" id="var_dumper.cloner"/>
@@ -3212,6 +3216,9 @@
     <service id="sensio_distribution.security_checker.command" class="SensioLabs\Security\Command\SecurityCheckerCommand">
       <tag name="console.command"/>
       <argument type="service" id="sensio_distribution.security_checker"/>
+    </service>
+    <service id="doctrine.fixtures_load_command" class="Doctrine\Bundle\FixturesBundle\Command\LoadDataFixturesDoctrineCommand">
+      <tag name="console.command" command="doctrine:fixtures:load"/>
     </service>
     <service id="web_server.command.server_run" class="Symfony\Bundle\WebServerBundle\Command\ServerRunCommand" public="false">
       <tag name="console.command"/>
@@ -3445,7 +3452,7 @@
     <service id="cache.system.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>Sr2NYiyEVw</argument>
       <argument>0</argument>
-      <argument>zlt2RK4Z5kLZuVSCMblnET</argument>
+      <argument>bc1AnVsgywYhCxUcJp-TmT</argument>
       <argument>C:\wamp64\www\Symfony\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -3453,7 +3460,7 @@
     <service id="cache.validator.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>GzmsU7LRDg</argument>
       <argument>0</argument>
-      <argument>zlt2RK4Z5kLZuVSCMblnET</argument>
+      <argument>bc1AnVsgywYhCxUcJp-TmT</argument>
       <argument>C:\wamp64\www\Symfony\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -3461,7 +3468,7 @@
     <service id="cache.serializer.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>GWxCj80Md+</argument>
       <argument>0</argument>
-      <argument>zlt2RK4Z5kLZuVSCMblnET</argument>
+      <argument>bc1AnVsgywYhCxUcJp-TmT</argument>
       <argument>C:\wamp64\www\Symfony\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -3469,7 +3476,7 @@
     <service id="cache.annotations.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>46cej4WFnb</argument>
       <argument>0</argument>
-      <argument>zlt2RK4Z5kLZuVSCMblnET</argument>
+      <argument>bc1AnVsgywYhCxUcJp-TmT</argument>
       <argument>C:\wamp64\www\Symfony\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>

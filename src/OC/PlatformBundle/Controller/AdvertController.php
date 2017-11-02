@@ -72,6 +72,15 @@ class AdvertController extends Controller
 		// La gestion d'un formulaire est particulière, mais l'idée est la suivante :
 
 		// Si la requête est en POST, c'est que le visiteur a soumis le formulaire
+		// Récuperation du service antispam
+		$antispam = $this->container->get('oc_platform.antispam');
+
+		$text = "Ceci est un text trop court";
+
+		if ($antispam->isSpam($text)) {
+			throw new \Exception("Votre message a été détécté comme spam !");
+		}
+
 		if ($request->isMethod('POST')) {
 			// Ici, on s'occupera de la création et de la gestion du formulaire
 
