@@ -17,6 +17,7 @@
       <parameter key="DoctrineBundle">Doctrine\Bundle\DoctrineBundle\DoctrineBundle</parameter>
       <parameter key="SensioFrameworkExtraBundle">Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle</parameter>
       <parameter key="OCPlatformBundle">OC\PlatformBundle\OCPlatformBundle</parameter>
+      <parameter key="OCCoreBundle">OC\CoreBundle\OCCoreBundle</parameter>
       <parameter key="DebugBundle">Symfony\Bundle\DebugBundle\DebugBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
@@ -64,6 +65,11 @@
         <parameter key="parent">null</parameter>
         <parameter key="path">C:\wamp64\www\Symfony\src\OC\PlatformBundle</parameter>
         <parameter key="namespace">OC\PlatformBundle</parameter>
+      </parameter>
+      <parameter key="OCCoreBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">C:\wamp64\www\Symfony\src\OC\CoreBundle</parameter>
+        <parameter key="namespace">OC\CoreBundle</parameter>
       </parameter>
       <parameter key="DebugBundle" type="collection">
         <parameter key="parent">null</parameter>
@@ -628,7 +634,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>bc1AnVsgywYhCxUcJp-TmT</argument>
+      <argument>C8QI2p69dygutUmp2rjCEn</argument>
       <argument>C:\wamp64\www\Symfony\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -638,7 +644,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>bc1AnVsgywYhCxUcJp-TmT</argument>
+      <argument>C8QI2p69dygutUmp2rjCEn</argument>
       <call method="setLogger">
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       </call>
@@ -2180,12 +2186,12 @@
     </service>
     <service id="security.authentication.listener.anonymous.main" class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
       <argument type="service" id="security.token_storage"/>
-      <argument>59fb3a5feb7216.37332513</argument>
+      <argument>59fb412109db28.52834694</argument>
       <argument type="service" id="monolog.logger.security" on-invalid="null"/>
       <argument type="service" id="security.authentication.manager"/>
     </service>
     <service id="security.authentication.provider.anonymous.main" class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-      <argument>59fb3a5feb7216.37332513</argument>
+      <argument>59fb412109db28.52834694</argument>
     </service>
     <service id="security.exception_listener.main" class="Symfony\Component\Security\Http\Firewall\ExceptionListener" public="false">
       <argument type="service" id="security.token_storage"/>
@@ -2367,6 +2373,10 @@
         <argument>OCPlatform</argument>
       </call>
       <call method="addPath">
+        <argument>C:\wamp64\www\Symfony\src\OC\CoreBundle/Resources/views</argument>
+        <argument>OCCore</argument>
+      </call>
+      <call method="addPath">
         <argument>C:\wamp64\www\Symfony\vendor\symfony\symfony\src\Symfony\Bundle\DebugBundle/Resources/views</argument>
         <argument>Debug</argument>
       </call>
@@ -2511,6 +2521,10 @@
       <call method="addPath">
         <argument>C:\wamp64\www\Symfony\src\OC\PlatformBundle/Resources/views</argument>
         <argument>OCPlatform</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\wamp64\www\Symfony\src\OC\CoreBundle/Resources/views</argument>
+        <argument>OCCore</argument>
       </call>
       <call method="addPath">
         <argument>C:\wamp64\www\Symfony\vendor\symfony\symfony\src\Symfony\Bundle\DebugBundle/Resources/views</argument>
@@ -3056,7 +3070,7 @@
     <service id="OC_platform.antispam" class="OC\PlatformBundle\Antispam\OCAntispam">
       <argument type="service" id="swiftmailer.mailer.default"/>
       <argument>en</argument>
-      <argument>150</argument>
+      <argument>50</argument>
     </service>
     <service id="twig.extension.dump" class="Symfony\Bridge\Twig\Extension\DumpExtension" public="false">
       <tag name="twig.extension"/>
@@ -3452,7 +3466,7 @@
     <service id="cache.system.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>Sr2NYiyEVw</argument>
       <argument>0</argument>
-      <argument>bc1AnVsgywYhCxUcJp-TmT</argument>
+      <argument>C8QI2p69dygutUmp2rjCEn</argument>
       <argument>C:\wamp64\www\Symfony\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -3460,7 +3474,7 @@
     <service id="cache.validator.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>GzmsU7LRDg</argument>
       <argument>0</argument>
-      <argument>bc1AnVsgywYhCxUcJp-TmT</argument>
+      <argument>C8QI2p69dygutUmp2rjCEn</argument>
       <argument>C:\wamp64\www\Symfony\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -3468,7 +3482,7 @@
     <service id="cache.serializer.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>GWxCj80Md+</argument>
       <argument>0</argument>
-      <argument>bc1AnVsgywYhCxUcJp-TmT</argument>
+      <argument>C8QI2p69dygutUmp2rjCEn</argument>
       <argument>C:\wamp64\www\Symfony\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -3476,7 +3490,7 @@
     <service id="cache.annotations.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>46cej4WFnb</argument>
       <argument>0</argument>
-      <argument>bc1AnVsgywYhCxUcJp-TmT</argument>
+      <argument>C8QI2p69dygutUmp2rjCEn</argument>
       <argument>C:\wamp64\www\Symfony\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>

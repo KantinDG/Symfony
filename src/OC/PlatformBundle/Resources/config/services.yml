@@ -3,7 +3,7 @@ services:
         class: OC\PlatformBundle\Antispam\OCAntispam
         arguments:
             - "@mailer"
-            - %locale%
+            - '%locale%'
             - 50
 #    oc_platform.example:
 #        class: OC\PlatformBundle\Example
