@@ -9,11 +9,11 @@ use Symfony\Component\HttpFoundation\Response;
 
 class AdvertController extends Controller {
 
-	public function viewSlugAction($slug,$year,$format)
+	public function viewSlugAction($slug,$year,$_format)
 	{
 		return new Response(
 			"On pourrait afficher l'annonce aurespondant au
-			slug '".$slug."', crée en ".$year." et au format ".$format."."
+			slug '".$slug."', crée en ".$year." et au format ".$_format."."
 		);
 	}
 
@@ -22,6 +22,8 @@ class AdvertController extends Controller {
 	}
 
 	public function indexAction() {
+		$url = $this
+			->generateUrl('oc_platform_home');
 		$content = $this
 			->get('templating')
 			->render('OCPlatformBundle:Advert:index.html.twig', array('nom' => 'Kantin'));
