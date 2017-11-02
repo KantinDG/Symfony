@@ -1,12 +1,17 @@
 
 oc_platform_home:
-    path:      /platform
+    path:       /platform
     defaults: { _controller: OCPlatformBundle:Advert:index }
 
 oc_platform_view:
-    path:      /platform/advert/{id}
+    path:       /platform/advert/{id}
     defaults: { _controller: OCPlatformBundle:Advert:view }
 
+oc_platform_view_slug:
+    path:       /platofrm/{year}/{slug}.{format}
+    defaults:
+        _controller: OCPlatformBundle:Advert:viewSlug
+
 oc_platform_add:
-    path:      /platform/add
+    path:       /platform/add
     defaults: { _controller: OCPlatformBundle:Advert:add }

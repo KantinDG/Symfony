@@ -16,3 +16,16 @@ dd31a2,::1,GET,http://localhost/symfony/web/app_dev.php/bye-world,1505810444,0e9
 aeeb3e,::1,GET,http://localhost/symfony/web/app_dev.php/bye-bye-world,1505810462,7a6e51,200
 7a6e51,::1,GET,http://localhost/symfony/web/app_dev.php/bye-bye-world,1505810462,,500
 ccc1d9,::1,GET,http://localhost/symfony/web/app_dev.php/bye-bye-world,1505810472,,200
+34bb00,::1,GET,http://localhost/Symfony/web/app_dev.php/_profiler,1509610532,,301
+fd9b2b,::1,GET,http://localhost/Symfony/web/app_dev.php/hello-world,1509612588,da82a3,200
+da82a3,::1,GET,http://localhost/Symfony/web/app_dev.php/hello-world,1509612588,,404
+b3b8fd,::1,GET,http://localhost/Symfony/web/app_dev.php/platform,1509612598,,200
+7e66fb,::1,GET,http://localhost/Symfony/web/app_dev.php/platform/advert/10,1509612623,b1060a,200
+b1060a,::1,GET,http://localhost/Symfony/web/app_dev.php/platform/advert/10,1509612623,,500
+33e918,::1,GET,http://localhost/Symfony/web/app_dev.php/platform/add,1509612657,666f70,200
+666f70,::1,GET,http://localhost/Symfony/web/app_dev.php/platform/add,1509612657,,500
+6a90a7,::1,GET,http://localhost/Symfony/web/app_dev.php/platform/advert/5,1509613562,3881ff,200
+3881ff,::1,GET,http://localhost/Symfony/web/app_dev.php/platform/advert/5,1509613562,,500
+f6cc4b,::1,GET,http://localhost/Symfony/web/app_dev.php/platform/advert/5,1509614083,,200
+5bef59,::1,GET,http://localhost/Symfony/web/app_dev.php/platform/advert/test,1509614095,,200
+7ec578,::1,GET,http://localhost/Symfony/web/app_dev.php/platform/advert/meuble%20TV,1509614108,,200
