@@ -78,7 +78,11 @@ class AdvertController extends Controller
 		$text = "Ceci est un text trop court";
 
 		if ($antispam->isSpam($text)) {
-			throw new \Exception("Votre message a été détécté comme spam !");
+			// throw new \Exception("Votre message a été détécté comme spam !");
+			$request->getSession()
+					->getFlashbag()
+					->add('danger', 'Votre message a été déteté comme spam !');
+			return $this->redirectToRoute('oc_platform_home');
 		}
 
 		if ($request->isMethod('POST')) {

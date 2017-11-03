@@ -103,13 +103,18 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
-        // oc_core_homepage
+        // oc_core_home
         if ('' === $trimmedPathinfo) {
             if (substr($pathinfo, -1) !== '/') {
-                return $this->redirect($pathinfo.'/', 'oc_core_homepage');
+                return $this->redirect($pathinfo.'/', 'oc_core_home');
             }
 
-            return array (  '_controller' => 'OC\\CoreBundle\\Controller\\DefaultController::indexAction',  '_route' => 'oc_core_homepage',);
+            return array (  '_controller' => 'OC\\CoreBundle\\Controller\\CoreController::homeAction',  '_route' => 'oc_core_home',);
+        }
+
+        // oc_core_contact
+        if ('/contact' === $pathinfo) {
+            return array (  '_controller' => 'OC\\CoreBundle\\Controller\\CoreController::contactAction',  '_route' => 'oc_core_contact',);
         }
 
         if (0 === strpos($pathinfo, '/platform')) {

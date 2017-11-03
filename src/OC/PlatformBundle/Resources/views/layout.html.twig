@@ -6,6 +6,15 @@
 	Annonces - {{ parent() }}
 {% endblock %}
 
+
+{% block menu %}
+	<h3>Les annonces</h3>
+	<ul class="nav nav-pills nav-stacked">
+		<li><a href="{{ path('oc_platform_home') }}">Accueil</a></li>
+		<li><a href="{{ path('oc_platform_add') }}">Ajouter une annonce</a></li>
+	</ul>
+{% endblock %}
+
 {% block body %}
 
 	{# On définit un sous-titre commun à toutes les pages du bundle, par exemple #}

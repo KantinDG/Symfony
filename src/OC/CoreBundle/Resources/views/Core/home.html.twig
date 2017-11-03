@@ -1,0 +1,28 @@
+{# src/OC/Core/Ressources/view/layout.html.twig #}
+
+{% extends "OCCoreBundle::layout.html.twig" %}
+
+{% block title %}
+	Annonces - {{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+	<h1> Accueil </h1>
+	<hr>
+	<h2>Dernières annonces</h2>
+	<ul>
+		{% for advert in listAdverts %}
+			<li>
+				<a href="{{ path('oc_platform_view', {'id': advert.id}) }}">
+					{{ advert.title }}
+				</a>
+				par {{ advert.author }},
+				le {{ advert.date|date('d/m/Y')}}
+			</li>
+		{% else %}
+			<li>Pas (encore) d'annonces ! </li>
+		{% endfor %}
+	</ul>
+
+{% endblock %}
