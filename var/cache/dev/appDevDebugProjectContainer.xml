@@ -104,8 +104,9 @@
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
     <parameter key="kernel.container_class">appDevDebugProjectContainer</parameter>
-    <parameter key="database_host">127.0.0.1</parameter>
-    <parameter key="database_port">null</parameter>
+    <parameter key="database_driver">pdo_mysql</parameter>
+    <parameter key="database_host">localhost</parameter>
+    <parameter key="database_port">3306</parameter>
     <parameter key="database_name">symfony</parameter>
     <parameter key="database_user">root</parameter>
     <parameter key="database_password">null</parameter>
@@ -634,7 +635,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>nJTUNcUayj-DO4cWfj+0oa</argument>
+      <argument>xJeoIbCvrGLrbsIdr65hjf</argument>
       <argument>C:\wamp64\www\Symfony\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -644,7 +645,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>nJTUNcUayj-DO4cWfj+0oa</argument>
+      <argument>xJeoIbCvrGLrbsIdr65hjf</argument>
       <call method="setLogger">
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       </call>
@@ -2194,12 +2195,12 @@
     </service>
     <service id="security.authentication.listener.anonymous.main" class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
       <argument type="service" id="security.token_storage"/>
-      <argument>59fc4d88aaedd9.01188075</argument>
+      <argument>59fc7c8a1fd464.33908752</argument>
       <argument type="service" id="monolog.logger.security" on-invalid="null"/>
       <argument type="service" id="security.authentication.manager"/>
     </service>
     <service id="security.authentication.provider.anonymous.main" class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-      <argument>59fc4d88aaedd9.01188075</argument>
+      <argument>59fc7c8a1fd464.33908752</argument>
     </service>
     <service id="security.exception_listener.main" class="Symfony\Component\Security\Http\Firewall\ExceptionListener" public="false">
       <argument type="service" id="security.token_storage"/>
@@ -2834,8 +2835,8 @@
     <service id="doctrine.dbal.default_connection" class="Doctrine\DBAL\Connection">
       <argument type="collection">
         <argument key="driver">pdo_mysql</argument>
-        <argument key="host">127.0.0.1</argument>
-        <argument key="port">null</argument>
+        <argument key="host">localhost</argument>
+        <argument key="port">3306</argument>
         <argument key="dbname">symfony</argument>
         <argument key="user">root</argument>
         <argument key="password">null</argument>
@@ -3487,7 +3488,7 @@
     <service id="cache.system.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>Sr2NYiyEVw</argument>
       <argument>0</argument>
-      <argument>nJTUNcUayj-DO4cWfj+0oa</argument>
+      <argument>xJeoIbCvrGLrbsIdr65hjf</argument>
       <argument>C:\wamp64\www\Symfony\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -3495,7 +3496,7 @@
     <service id="cache.validator.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>GzmsU7LRDg</argument>
       <argument>0</argument>
-      <argument>nJTUNcUayj-DO4cWfj+0oa</argument>
+      <argument>xJeoIbCvrGLrbsIdr65hjf</argument>
       <argument>C:\wamp64\www\Symfony\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -3503,7 +3504,7 @@
     <service id="cache.serializer.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>GWxCj80Md+</argument>
       <argument>0</argument>
-      <argument>nJTUNcUayj-DO4cWfj+0oa</argument>
+      <argument>xJeoIbCvrGLrbsIdr65hjf</argument>
       <argument>C:\wamp64\www\Symfony\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -3511,7 +3512,7 @@
     <service id="cache.annotations.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>46cej4WFnb</argument>
       <argument>0</argument>
-      <argument>nJTUNcUayj-DO4cWfj+0oa</argument>
+      <argument>xJeoIbCvrGLrbsIdr65hjf</argument>
       <argument>C:\wamp64\www\Symfony\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>

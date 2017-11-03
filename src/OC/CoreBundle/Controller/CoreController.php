@@ -45,4 +45,5 @@ class CoreController extends Controller
 		$session->getFlashBag()->add('info', "Nous n'avons pas encore de page contact");
 		return $this->redirectToRoute('oc_core_home');
 	}
+
 }

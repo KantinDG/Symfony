@@ -11,18 +11,6 @@
 	<h1> Accueil </h1>
 	<hr>
 	<h2>Dernières annonces</h2>
-	<ul>
-		{% for advert in listAdverts %}
-			<li>
-				<a href="{{ path('oc_platform_view', {'id': advert.id}) }}">
-					{{ advert.title }}
-				</a>
-				par {{ advert.author }},
-				le {{ advert.date|date('d/m/Y')}}
-			</li>
-		{% else %}
-			<li>Pas (encore) d'annonces ! </li>
-		{% endfor %}
-	</ul>
+	{{ render(controller("OCPlatformBundle:Advert:menu", {'limit': 3})) }}
 
 {% endblock %}

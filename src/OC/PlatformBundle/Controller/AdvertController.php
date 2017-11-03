@@ -4,6 +4,7 @@
 
 namespace OC\PlatformBundle\Controller;
 
+use OC\PlatformBundle\Entity\Advert;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -54,14 +55,20 @@ class AdvertController extends Controller
 
 	public function viewAction($id)
 	{
-		// Ici, on récupérera l'annonce correspondante à l'id $id
-		$advert = array(
-			'title'		=> 'Recherche développpeur Symfony2',
-			'id'		=> $id,
-			'author'	=> 'Alexandre',
-			'content'	=> 'Nous recherchons un développeur Symfony2 débutant sur Lyon. Blabla…',
-			'date'		=> new \Datetime()
-		);
+		// On récupere le repository
+		$repository = $this->getDoctrine()
+			->getmanager()
+			->getRepository('OCPlatformBundle:Advert');
+
+		// On récupère l'entité correspondate a l'id $id
+		$advert = $repository->find($id);
+
+		// $advert est une instance de OC\PlatformBundle\Entity\Advert
+		// ou null si l'id $id n'existe pas
+		if (null === $advert) {
+			throw new NotFoundHttpException("L'annonce d'id $id n'existe pas.");
+		}
+
 		return $this->render('OCPlatformBundle:Advert:view.html.twig', array(
 			'advert' => $advert
 		));
@@ -75,15 +82,31 @@ class AdvertController extends Controller
 		// Récuperation du service antispam
 		$antispam = $this->container->get('oc_platform.antispam');
 
-		$text = "Ceci est un text trop court";
+		// $text = "Ceci est un text trop court";
 
-		if ($antispam->isSpam($text)) {
-			// throw new \Exception("Votre message a été détécté comme spam !");
-			$request->getSession()
-					->getFlashbag()
-					->add('danger', 'Votre message a été déteté comme spam !');
-			return $this->redirectToRoute('oc_platform_home');
-		}
+		// if ($antispam->isSpam($text)) {
+		// 	// throw new \Exception("Votre message a été détécté comme spam !");
+		// 	$request->getSession()
+		// 			->getFlashbag()
+		// 			->add('danger', 'Votre message a été déteté comme spam !');
+		// 	return $this->redirectToRoute('oc_platform_home');
+		// }
+
+		//Création de l'entité
+		$advert = new Advert();
+		$advert->setTitle('Recherche développeur Symfony.');
+		$advert->setAuthor('Alexandre');
+		$advert->setContent('Nous cherchons un développeur Symfony débutant sur Lyon. blabla...');
+		// On peut ne pas définir ni la date ni la publication
+		// car ces attributs sont définis automatiquement dans le contrsucteur
+
+		// On récupère l'EntityManager
+		$em = $this->getDoctrine()->getManager();
+
+		// Etape 1 : On "persiste" l'entité
+		$em->persist($advert);
+
+		$em->flush();
 
 		if ($request->isMethod('POST')) {
 			// Ici, on s'occupera de la création et de la gestion du formulaire
