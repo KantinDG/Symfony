@@ -7,16 +7,17 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Application
  *
- * @ORM\Table(name="application")
+ * @ORM\Table(name="oc_application")
  * @ORM\Entity(repositoryClass="OC\PlatformBundle\Repository\ApplicationRepository")
  */
 class Application
 {
 
 	/**
-	* @ORM\ManyToOne(targetEntity="OC\PlatformBundle\Entity\Advert")
+	* @ORM\ManyToOne(targetEntity="OC\PlatformBundle\Entity\Advert", inversedBy="applications")
 	* @ORM\JoinColumn(nullable=false)
 	*/
+	private $advert;
 
 
 	/**
@@ -136,4 +137,28 @@ class Application
 	{
 		return $this->date;
 	}
+
+    /**
+     * Set advert
+     *
+     * @param \OC\PlatformBundle\Entity\Advert $advert
+     *
+     * @return Application
+     */
+    public function setAdvert(\OC\PlatformBundle\Entity\Advert $advert)
+    {
+        $this->advert = $advert;
+
+        return $this;
+    }
+
+    /**
+     * Get advert
+     *
+     * @return \OC\PlatformBundle\Entity\Advert
+     */
+    public function getAdvert()
+    {
+        return $this->advert;
+    }
 }

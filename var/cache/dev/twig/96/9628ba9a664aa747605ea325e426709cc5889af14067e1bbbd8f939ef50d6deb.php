@@ -22,29 +22,29 @@ class __TwigTemplate_b56b591733669a4e4e2743871e039d82f52547dd44a6e2d8570c2cf64f5
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_ec938c3b5fc8f39480040c6ee1cd65b6c5cac1a6ec32ed64a3a828d23eda659c = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_ec938c3b5fc8f39480040c6ee1cd65b6c5cac1a6ec32ed64a3a828d23eda659c->enter($__internal_ec938c3b5fc8f39480040c6ee1cd65b6c5cac1a6ec32ed64a3a828d23eda659c_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "OCPlatformBundle:Advert:view.html.twig"));
+        $__internal_a82840c1300c99519a5d67efcf7e4dc6a7d23a024259af028619647bf15950af = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_a82840c1300c99519a5d67efcf7e4dc6a7d23a024259af028619647bf15950af->enter($__internal_a82840c1300c99519a5d67efcf7e4dc6a7d23a024259af028619647bf15950af_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "OCPlatformBundle:Advert:view.html.twig"));
 
-        $__internal_758ea5e42f8c4bcf386e45d48a935524ea69648027ff66e8372d2fb6f5bf055f = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_758ea5e42f8c4bcf386e45d48a935524ea69648027ff66e8372d2fb6f5bf055f->enter($__internal_758ea5e42f8c4bcf386e45d48a935524ea69648027ff66e8372d2fb6f5bf055f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "OCPlatformBundle:Advert:view.html.twig"));
+        $__internal_06a8c815cdb32871440c7410d92bd6de5bcfa7af0026da68f8984dd91a4c5b50 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_06a8c815cdb32871440c7410d92bd6de5bcfa7af0026da68f8984dd91a4c5b50->enter($__internal_06a8c815cdb32871440c7410d92bd6de5bcfa7af0026da68f8984dd91a4c5b50_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "OCPlatformBundle:Advert:view.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_ec938c3b5fc8f39480040c6ee1cd65b6c5cac1a6ec32ed64a3a828d23eda659c->leave($__internal_ec938c3b5fc8f39480040c6ee1cd65b6c5cac1a6ec32ed64a3a828d23eda659c_prof);
+        $__internal_a82840c1300c99519a5d67efcf7e4dc6a7d23a024259af028619647bf15950af->leave($__internal_a82840c1300c99519a5d67efcf7e4dc6a7d23a024259af028619647bf15950af_prof);
 
         
-        $__internal_758ea5e42f8c4bcf386e45d48a935524ea69648027ff66e8372d2fb6f5bf055f->leave($__internal_758ea5e42f8c4bcf386e45d48a935524ea69648027ff66e8372d2fb6f5bf055f_prof);
+        $__internal_06a8c815cdb32871440c7410d92bd6de5bcfa7af0026da68f8984dd91a4c5b50->leave($__internal_06a8c815cdb32871440c7410d92bd6de5bcfa7af0026da68f8984dd91a4c5b50_prof);
 
     }
 
     // line 5
     public function block_title($context, array $blocks = array())
     {
-        $__internal_1b29c9572c550fae907d6098b66bcfdf1da9fdfbf3a2c3ec332df056f607f2fd = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_1b29c9572c550fae907d6098b66bcfdf1da9fdfbf3a2c3ec332df056f607f2fd->enter($__internal_1b29c9572c550fae907d6098b66bcfdf1da9fdfbf3a2c3ec332df056f607f2fd_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
+        $__internal_395a331b72735e65a83785743c22b60b7ab0e6b9ea71c98f14987872220a2744 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_395a331b72735e65a83785743c22b60b7ab0e6b9ea71c98f14987872220a2744->enter($__internal_395a331b72735e65a83785743c22b60b7ab0e6b9ea71c98f14987872220a2744_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
-        $__internal_0ed5df02914ee3b0c264f4c9ef3b301a61e1174b2661076295b5238eeb39d8b4 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_0ed5df02914ee3b0c264f4c9ef3b301a61e1174b2661076295b5238eeb39d8b4->enter($__internal_0ed5df02914ee3b0c264f4c9ef3b301a61e1174b2661076295b5238eeb39d8b4_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
+        $__internal_0e6af9ec8ae71acf87cbf9f055688a3e9215edae80e362e943af1c5f37ff91a9 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_0e6af9ec8ae71acf87cbf9f055688a3e9215edae80e362e943af1c5f37ff91a9->enter($__internal_0e6af9ec8ae71acf87cbf9f055688a3e9215edae80e362e943af1c5f37ff91a9_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
         // line 6
         echo "\tLecture d'une annonce - ";
@@ -52,21 +52,21 @@ class __TwigTemplate_b56b591733669a4e4e2743871e039d82f52547dd44a6e2d8570c2cf64f5
         echo "
 ";
         
-        $__internal_0ed5df02914ee3b0c264f4c9ef3b301a61e1174b2661076295b5238eeb39d8b4->leave($__internal_0ed5df02914ee3b0c264f4c9ef3b301a61e1174b2661076295b5238eeb39d8b4_prof);
+        $__internal_0e6af9ec8ae71acf87cbf9f055688a3e9215edae80e362e943af1c5f37ff91a9->leave($__internal_0e6af9ec8ae71acf87cbf9f055688a3e9215edae80e362e943af1c5f37ff91a9_prof);
 
         
-        $__internal_1b29c9572c550fae907d6098b66bcfdf1da9fdfbf3a2c3ec332df056f607f2fd->leave($__internal_1b29c9572c550fae907d6098b66bcfdf1da9fdfbf3a2c3ec332df056f607f2fd_prof);
+        $__internal_395a331b72735e65a83785743c22b60b7ab0e6b9ea71c98f14987872220a2744->leave($__internal_395a331b72735e65a83785743c22b60b7ab0e6b9ea71c98f14987872220a2744_prof);
 
     }
 
     // line 9
     public function block_ocplatform_body($context, array $blocks = array())
     {
-        $__internal_9c0ea15c62200512424254921fa24b1d4222dabfd8a31817348e866e1695658d = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_9c0ea15c62200512424254921fa24b1d4222dabfd8a31817348e866e1695658d->enter($__internal_9c0ea15c62200512424254921fa24b1d4222dabfd8a31817348e866e1695658d_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "ocplatform_body"));
+        $__internal_aad7d5fc926ab95fc5aa5e7c65e2f8638b091ab65959fed602a37eff620e7393 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_aad7d5fc926ab95fc5aa5e7c65e2f8638b091ab65959fed602a37eff620e7393->enter($__internal_aad7d5fc926ab95fc5aa5e7c65e2f8638b091ab65959fed602a37eff620e7393_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "ocplatform_body"));
 
-        $__internal_aebf4ddd37ddc4020635fda284eec543cb585888b220eadd143710a55219c7d1 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_aebf4ddd37ddc4020635fda284eec543cb585888b220eadd143710a55219c7d1->enter($__internal_aebf4ddd37ddc4020635fda284eec543cb585888b220eadd143710a55219c7d1_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "ocplatform_body"));
+        $__internal_a72084cfcecc42db4f1100bdb9f56accef66d52754ef627cf4c9e8dbf2733643 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_a72084cfcecc42db4f1100bdb9f56accef66d52754ef627cf4c9e8dbf2733643->enter($__internal_a72084cfcecc42db4f1100bdb9f56accef66d52754ef627cf4c9e8dbf2733643_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "ocplatform_body"));
 
         // line 10
         echo "
@@ -99,24 +99,124 @@ class __TwigTemplate_b56b591733669a4e4e2743871e039d82f52547dd44a6e2d8570c2cf64f5
         echo "
 \t</div>
 
+\t";
+        // line 21
+        if ( !twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["advert"]) || array_key_exists("advert", $context) ? $context["advert"] : (function () { throw new Twig_Error_Runtime('Variable "advert" does not exist.', 21, $this->getSourceContext()); })()), "categories", array()), "empty", array())) {
+            // line 22
+            echo "\t<p>
+\t\tCette annonce est parue dans les catégories suivantes :
+\t\t";
+            // line 24
+            $context['_parent'] = $context;
+            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["advert"]) || array_key_exists("advert", $context) ? $context["advert"] : (function () { throw new Twig_Error_Runtime('Variable "advert" does not exist.', 24, $this->getSourceContext()); })()), "categories", array()));
+            $context['loop'] = array(
+              'parent' => $context['_parent'],
+              'index0' => 0,
+              'index'  => 1,
+              'first'  => true,
+            );
+            if (is_array($context['_seq']) || (is_object($context['_seq']) && $context['_seq'] instanceof Countable)) {
+                $length = count($context['_seq']);
+                $context['loop']['revindex0'] = $length - 1;
+                $context['loop']['revindex'] = $length;
+                $context['loop']['length'] = $length;
+                $context['loop']['last'] = 1 === $length;
+            }
+            foreach ($context['_seq'] as $context["_key"] => $context["category"]) {
+                // line 25
+                echo "\t\t\t";
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["category"], "name", array()), "html", null, true);
+                if ( !twig_get_attribute($this->env, $this->getSourceContext(), $context["loop"], "last", array())) {
+                    echo ", ";
+                }
+                // line 26
+                echo "\t\t";
+                ++$context['loop']['index0'];
+                ++$context['loop']['index'];
+                $context['loop']['first'] = false;
+                if (isset($context['loop']['length'])) {
+                    --$context['loop']['revindex0'];
+                    --$context['loop']['revindex'];
+                    $context['loop']['last'] = 0 === $context['loop']['revindex0'];
+                }
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['category'], $context['_parent'], $context['loop']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 27
+            echo "\t</p>
+\t";
+        }
+        // line 29
+        echo "
+\t";
+        // line 30
+        if ((twig_length_filter($this->env, (isset($context["listAdvertSkills"]) || array_key_exists("listAdvertSkills", $context) ? $context["listAdvertSkills"] : (function () { throw new Twig_Error_Runtime('Variable "listAdvertSkills" does not exist.', 30, $this->getSourceContext()); })())) > 0)) {
+            // line 31
+            echo "\t<div>
+\t\tCette annonce requiert les compétences suivantes :
+\t\t<ul>
+\t\t\t";
+            // line 34
+            $context['_parent'] = $context;
+            $context['_seq'] = twig_ensure_traversable((isset($context["listAdvertSkills"]) || array_key_exists("listAdvertSkills", $context) ? $context["listAdvertSkills"] : (function () { throw new Twig_Error_Runtime('Variable "listAdvertSkills" does not exist.', 34, $this->getSourceContext()); })()));
+            foreach ($context['_seq'] as $context["_key"] => $context["advertSkill"]) {
+                // line 35
+                echo "\t\t\t\t<li>";
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), twig_get_attribute($this->env, $this->getSourceContext(), $context["advertSkill"], "skill", array()), "name", array()), "html", null, true);
+                echo " : niveau ";
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["advertSkill"], "level", array()), "html", null, true);
+                echo "</li>
+\t\t\t";
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['advertSkill'], $context['_parent'], $context['loop']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 37
+            echo "\t\t</ul>
+\t</div>
+\t";
+        }
+        // line 40
+        echo "
+\t<ul class=\"nav nav-pills nav-stacked\">
+\t\t";
+        // line 42
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["listApplication"]) || array_key_exists("listApplication", $context) ? $context["listApplication"] : (function () { throw new Twig_Error_Runtime('Variable "listApplication" does not exist.', 42, $this->getSourceContext()); })()));
+        foreach ($context['_seq'] as $context["_key"] => $context["application"]) {
+            // line 43
+            echo "\t\t\t<li><span>";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["application"], "author", array()), "html", null, true);
+            echo " : ";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["application"], "content", array()), "html", null, true);
+            echo " </span></li>
+\t\t";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['application'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 45
+        echo "\t</ul>
+
 \t<p>
 \t\t<a href=\"";
-        // line 22
+        // line 48
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("oc_platform_home");
         echo "\" class=\"btn btn-default\">
 \t\t\t<i class=\"glyphicon glyphicon-chevron-left\"></i>
 \t\t\tRetour à la liste
 \t\t</a>
 \t\t<a href=\"";
-        // line 26
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("oc_platform_edit", array("id" => twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["advert"]) || array_key_exists("advert", $context) ? $context["advert"] : (function () { throw new Twig_Error_Runtime('Variable "advert" does not exist.', 26, $this->getSourceContext()); })()), "id", array()))), "html", null, true);
+        // line 52
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("oc_platform_edit", array("id" => twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["advert"]) || array_key_exists("advert", $context) ? $context["advert"] : (function () { throw new Twig_Error_Runtime('Variable "advert" does not exist.', 52, $this->getSourceContext()); })()), "id", array()))), "html", null, true);
         echo "\" class=\"btn btn-default\">
 \t\t\t<i class=\"glyphicon glyphicon-edit\"></i>
 \t\t\tModifier l'annonce
 \t\t</a>
 \t\t<a href=\"";
-        // line 30
-        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("oc_platform_delete", array("id" => twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["advert"]) || array_key_exists("advert", $context) ? $context["advert"] : (function () { throw new Twig_Error_Runtime('Variable "advert" does not exist.', 30, $this->getSourceContext()); })()), "id", array()))), "html", null, true);
+        // line 56
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("oc_platform_delete", array("id" => twig_get_attribute($this->env, $this->getSourceContext(), (isset($context["advert"]) || array_key_exists("advert", $context) ? $context["advert"] : (function () { throw new Twig_Error_Runtime('Variable "advert" does not exist.', 56, $this->getSourceContext()); })()), "id", array()))), "html", null, true);
         echo "\" class=\"btn btn-danger\">
 \t\t\t<i class=\"glyphicon glyphicon-trash\"></i>
 \t\t\tSupprimer l'annonce
@@ -125,10 +225,10 @@ class __TwigTemplate_b56b591733669a4e4e2743871e039d82f52547dd44a6e2d8570c2cf64f5
 
 ";
         
-        $__internal_aebf4ddd37ddc4020635fda284eec543cb585888b220eadd143710a55219c7d1->leave($__internal_aebf4ddd37ddc4020635fda284eec543cb585888b220eadd143710a55219c7d1_prof);
+        $__internal_a72084cfcecc42db4f1100bdb9f56accef66d52754ef627cf4c9e8dbf2733643->leave($__internal_a72084cfcecc42db4f1100bdb9f56accef66d52754ef627cf4c9e8dbf2733643_prof);
 
         
-        $__internal_9c0ea15c62200512424254921fa24b1d4222dabfd8a31817348e866e1695658d->leave($__internal_9c0ea15c62200512424254921fa24b1d4222dabfd8a31817348e866e1695658d_prof);
+        $__internal_aad7d5fc926ab95fc5aa5e7c65e2f8638b091ab65959fed602a37eff620e7393->leave($__internal_aad7d5fc926ab95fc5aa5e7c65e2f8638b091ab65959fed602a37eff620e7393_prof);
 
     }
 
@@ -144,7 +244,7 @@ class __TwigTemplate_b56b591733669a4e4e2743871e039d82f52547dd44a6e2d8570c2cf64f5
 
     public function getDebugInfo()
     {
-        return array (  119 => 30,  112 => 26,  105 => 22,  98 => 18,  89 => 15,  81 => 13,  79 => 12,  75 => 11,  72 => 10,  63 => 9,  50 => 6,  41 => 5,  11 => 3,);
+        return array (  219 => 56,  212 => 52,  205 => 48,  200 => 45,  189 => 43,  185 => 42,  181 => 40,  176 => 37,  165 => 35,  161 => 34,  156 => 31,  154 => 30,  151 => 29,  147 => 27,  133 => 26,  127 => 25,  110 => 24,  106 => 22,  104 => 21,  98 => 18,  89 => 15,  81 => 13,  79 => 12,  75 => 11,  72 => 10,  63 => 9,  50 => 6,  41 => 5,  11 => 3,);
     }
 
     public function getSourceContext()
@@ -168,6 +268,32 @@ class __TwigTemplate_b56b591733669a4e4e2743871e039d82f52547dd44a6e2d8570c2cf64f5
 \t<div class=\"well\">
 \t\t{{ advert.content }}
 \t</div>
+
+\t{% if not advert.categories.empty %}
+\t<p>
+\t\tCette annonce est parue dans les catégories suivantes :
+\t\t{% for category in advert.categories %}
+\t\t\t{{ category.name }}{% if not loop.last %}, {% endif %}
+\t\t{% endfor %}
+\t</p>
+\t{% endif %}
+
+\t{% if listAdvertSkills|length > 0 %}
+\t<div>
+\t\tCette annonce requiert les compétences suivantes :
+\t\t<ul>
+\t\t\t{% for advertSkill in listAdvertSkills %}
+\t\t\t\t<li>{{ advertSkill.skill.name }} : niveau {{ advertSkill.level }}</li>
+\t\t\t{% endfor %}
+\t\t</ul>
+\t</div>
+\t{% endif %}
+
+\t<ul class=\"nav nav-pills nav-stacked\">
+\t\t{% for application in listApplication %}
+\t\t\t<li><span>{{ application.author }} : {{ application.content }} </span></li>
+\t\t{% endfor %}
+\t</ul>
 
 \t<p>
 \t\t<a href=\"{{ path('oc_platform_home') }}\" class=\"btn btn-default\">

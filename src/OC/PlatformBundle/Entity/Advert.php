@@ -2,6 +2,7 @@
 
 namespace OC\PlatformBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -12,12 +13,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Advert
 {
-	/**
-	 * @var \Image
-	 *
-	 * @ORM\OneToOne(targetEntity="OC\PlatformBundle\Entity\Image", cascade={"persist"})
-	 */
-	private $image;
 
 	/**
 	 * @var int
@@ -27,6 +22,24 @@ class Advert
 	 * @ORM\GeneratedValue(strategy="AUTO")
 	 */
 	private $id;
+
+	/**
+	 * @ORM\ManyToMany(targetEntity="OC\PlatformBundle\Entity\Category", cascade={"persist"})
+	 * @ORM\JoinTable(name="oc_advert_category")
+	 */
+	private $categories;
+
+	/**
+	 * @var \Image
+	 *
+	 * @ORM\OneToOne(targetEntity="OC\PlatformBundle\Entity\Image", cascade={"persist"})
+	 */
+	private $image;
+
+	/**
+	 * @ORM\OneToMany(targetEntity="OC\PlatformBundle\Entity\Application", mappedBy="Advert")
+	 */
+	private $applications;
 
 	/**
 	 * @var \DateTime
@@ -223,4 +236,76 @@ class Advert
 	{
 		return $this->image;
 	}
+
+    /**
+     * Add category
+     *
+     * @param \OC\Platform\Entity\Category $category
+     *
+     * @return Advert
+     */
+    public function addCategory(\OC\PlatformBundle\Entity\Category $category)
+    {
+        $this->categories[] = $category;
+
+        return $this;
+    }
+
+    /**
+     * Remove category
+     *
+     * @param \OC\Platform\Entity\Category $category
+     */
+    public function removeCategory(\OC\PlatformBundle\Entity\Category $category)
+    {
+        $this->categories->removeElement($category);
+    }
+
+    /**
+     * Get categories
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCategories()
+    {
+        return $this->categories;
+    }
+
+    /**
+     * Add application
+     *
+     * @param \OC\PlatformBundle\Entity\Application $application
+     *
+     * @return Advert
+     */
+    public function addApplication(\OC\PlatformBundle\Entity\Application $application)
+    {
+        $this->applications[] = $application;
+
+
+        // On lie l'annonce a la candidature
+        $application->setAdvert($this);
+
+        return $this;
+    }
+
+    /**
+     * Remove application
+     *
+     * @param \OC\PlatformBundle\Entity\Application $application
+     */
+    public function removeApplication(\OC\PlatformBundle\Entity\Application $application)
+    {
+        $this->applications->removeElement($application);
+    }
+
+    /**
+     * Get applications
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getApplications()
+    {
+        return $this->applications;
+    }
 }
