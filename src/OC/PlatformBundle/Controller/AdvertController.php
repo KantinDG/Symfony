@@ -24,19 +24,19 @@ class AdvertController extends Controller
     $listAdverts = array(
       array(
         'title'   => 'Recherche développpeur Symfony',
-        'id'      => 1,
+        'id'      => 8,
         'author'  => 'Alexandre',
         'content' => 'Nous recherchons un développeur Symfony débutant sur Lyon. Blabla…',
         'date'    => new \Datetime()),
       array(
         'title'   => 'Mission de webmaster',
-        'id'      => 2,
+        'id'      => 9,
         'author'  => 'Hugo',
         'content' => 'Nous recherchons un webmaster capable de maintenir notre site internet. Blabla…',
         'date'    => new \Datetime()),
       array(
         'title'   => 'Offre de stage webdesigner',
-        'id'      => 3,
+        'id'      => 10,
         'author'  => 'Mathieu',
         'content' => 'Nous proposons un poste pour webdesigner. Blabla…',
         'date'    => new \Datetime())
@@ -216,7 +216,7 @@ class AdvertController extends Controller
 
     // On déclenche la modification
     $em->flush();
-    
+
     return $this->render('OCPlatformBundle:Advert:delete.html.twig');
   }
 
@@ -224,9 +224,9 @@ class AdvertController extends Controller
   {
     // On fixe en dur une liste ici, bien entendu par la suite on la récupérera depuis la BDD !
     $listAdverts = array(
-      array('id' => 2, 'title' => 'Recherche développeur Symfony'),
-      array('id' => 5, 'title' => 'Mission de webmaster'),
-      array('id' => 9, 'title' => 'Offre de stage webdesigner')
+      array('id' => 8, 'title' => 'Recherche développeur Symfony'),
+      array('id' => 9, 'title' => 'Mission de webmaster'),
+      array('id' => 10, 'title' => 'Offre de stage webdesigner')
     );
 
     return $this->render('OCPlatformBundle:Advert:menu.html.twig', array(
