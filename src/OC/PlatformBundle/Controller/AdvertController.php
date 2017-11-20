@@ -256,11 +256,15 @@ class AdvertController extends Controller
 	{
 		// On fixe en dur une liste ici, bien entendu par la suite
 		// on la récuperera depuis la BDD !
-		$listAdverts = array(
-			array('id' => 2, 'title' => 'Recherche développeur Symfony'),
-			array('id' => 5, 'title' => 'Mission de webmaster'),
-			array('id' => 9, 'title' => 'Offre de stage en webdesigner')
-		);
+		$repository = $this
+			->getDoctrine()
+			->getManager()
+			->getRepository('OCPlatformBundle:Advert')
+		;
+
+
+
+		$listAdverts = $repository->myFindAll();
 
 		return $this->render('OCPlatformBundle:Advert:menu.html.twig', array(
 			// Tout l'intétêt est ici : le contrôleur passe

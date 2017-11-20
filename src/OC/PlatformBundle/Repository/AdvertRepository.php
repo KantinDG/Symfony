@@ -2,6 +2,8 @@
 
 namespace OC\PlatformBundle\Repository;
 
+use Doctrine\ORM\EntityRepository;
+
 /**
  * AdvertRepository
  *
@@ -10,4 +12,110 @@ namespace OC\PlatformBundle\Repository;
  */
 class AdvertRepository extends \Doctrine\ORM\EntityRepository
 {
+	public function MyFindAllDemo()
+	{
+		// Methode 1 : en passant par l'entity Manager
+		$queryBuilder = $this->_em->createQueryBuilder()
+			->select('a')
+			->from($this->_entityName, 'a')
+		;
+
+		// Methode 2 : en passant par le raccourci (recommande)
+		$queryBuilder = $this->createQueryBuilder('a');
+
+		// On recupere le Query a partir du QueryBuilder
+		$query = $queryBuilder->getQuery();
+
+		// On recupere les resultat a partiru de lq query
+		$results = $query->getResult();
+
+		// On retourne ces pg_result_status
+		return $result;
+	}
+
+	public function myFindAll()
+	{
+		return $this
+			->createQueryBuilder('a')
+			->getQuery()
+			->getResult()
+		;
+	}
+
+	public function myFindOne($id)
+	{
+		$qb = $this->createQueryBuilder('a');
+
+		$qb
+			->where('a.id = :id')
+			->setParameter('id', $id)
+		;
+
+		return $qb
+			->getQuery()
+			->getResult()
+		;
+	}
+
+	public function myFindByAuthorAndDate($author, $year)
+	{
+		$qb = $this->createQueryBuilder('a');
+
+		$qb->where('a.author = :author')
+				->setParameter('author', $author)
+			->andWhere('a.date < :year')
+				->setParameter('year', $year)
+			->orderBy('a.date', 'DESC')
+		;
+
+		return $qb
+			->getQuery()
+			->getResult()
+		;
+	}
+
+	public function whereCurrentYear(QueryBuilder $qb)
+	{
+		$qb
+			->andWhere('a.date BETWEEN :start AND :end')
+			// Date entre le 1er janvier de l'annee
+			->setParameter('start', new \DateTime(date('Y').'01-01'))
+			// Et le 31 decembre de l'annee
+			->setParameter('end', new \DateTime(date('Y').'12-31'))
+		;
+	}
+
+	public function myFind()
+	{
+		$qb = $this->createQueryBuilder('a');
+
+		// On cherche l'auteur Marine
+		$qb
+			->where('a.athor = :author')
+			->setParamater('author', 'Marine')
+		;
+
+		// On applique notre condition sur le QueryBuilder
+		$this->whereCurretnYeqr($qb);
+
+		// On peut ajouter ce qu'on veut apres
+
+		$qb->orderBy('a.date', 'DESC');
+
+
+		return $qb
+			->getQuery()
+			->getResult()
+		;
+	}
+
+	public function myFindAllDQL()
+	{
+		$query = $this->_em->createQuery("SELECT a FROM OCPlatformBundle:Advert a");
+		$results = $query->getResult();
+
+		return $results;
+	}
+
+	public function getAdvertWithCategories(array $categoryNames);
 }
