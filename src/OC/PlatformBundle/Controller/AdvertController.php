@@ -16,13 +16,28 @@ class AdvertController extends Controller
 {
   public function indexAction($page)
   {
+    // On retour une erreur 404 si la page n'existe pas
     if ($page < 1) {
       throw new NotFoundHttpException('Page "'.$page.'" inexistante.');
     }
 
-    $em = $this->getDoctrine()->getManager();
-    // Je recupere les 4 dernieres annonces
-    $listAdverts = $em->getRepository('OCPlatformBundle:Advert')->findBy(array(), array('id' => 'DESC'), 4, 0);
+    // Nombre d'annonce par page fixe arbitrairement
+    $nbPerPage = 3;
+
+    // On recupere notre objet paginator
+    $listAdverts = $this-.getDoctrine()
+      ->getmanager()
+      ->getRepository()
+      ->getAdverts($page, $nbPerPage)
+    ;
+
+    // On calcul le nombre total de page grace au cout($listAdverts) qui retourne le nombre total d'annonces
+    $nbPages = ceil(count($listAdverts) / $nbPerPage);
+
+
+    if ($page > $nbPage) {
+      throw new NotFoundHttpException('Page "'.$page.'" inexistante.');
+    }
 
     return $this->render('OCPlatformBundle:Advert:index.html.twig', array(
       'listAdverts' => $listAdverts,
