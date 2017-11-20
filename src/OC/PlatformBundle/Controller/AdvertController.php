@@ -20,27 +20,9 @@ class AdvertController extends Controller
       throw new NotFoundHttpException('Page "'.$page.'" inexistante.');
     }
 
-    // Notre liste d'annonce en dur
-    $listAdverts = array(
-      array(
-        'title'   => 'Recherche développpeur Symfony',
-        'id'      => 8,
-        'author'  => 'Alexandre',
-        'content' => 'Nous recherchons un développeur Symfony débutant sur Lyon. Blabla…',
-        'date'    => new \Datetime()),
-      array(
-        'title'   => 'Mission de webmaster',
-        'id'      => 9,
-        'author'  => 'Hugo',
-        'content' => 'Nous recherchons un webmaster capable de maintenir notre site internet. Blabla…',
-        'date'    => new \Datetime()),
-      array(
-        'title'   => 'Offre de stage webdesigner',
-        'id'      => 10,
-        'author'  => 'Mathieu',
-        'content' => 'Nous proposons un poste pour webdesigner. Blabla…',
-        'date'    => new \Datetime())
-    );
+    $em = $this->getDoctrine()->getManager();
+    // Je recupere les 4 dernieres annonces
+    $listAdverts = $em->getRepository('OCPlatformBundle:Advert')->findBy(array(), array('id' => 'DESC'), 4, 0);
 
     return $this->render('OCPlatformBundle:Advert:index.html.twig', array(
       'listAdverts' => $listAdverts,
@@ -86,9 +68,38 @@ class AdvertController extends Controller
 
     // Création de l'entité
     $advert = new Advert();
-    $advert->setTitle('Recherche développeur Symfony.');
-    $advert->setAuthor('Alexandre');
-    $advert->setContent("Nous recherchons un développeur Symfony débutant sur Lyon. Blabla…");
+    // je selectionne aleatoirement un titre
+    $advert->setTitle(
+      array_rand(array(
+        'Recherche développeur Symfony.' => 0,
+        'Mission de webmaster' => 0,
+        'Offre de stage webdesigner' => 0
+      ))
+    );
+
+    // je selectionne aleatoirement un auteur
+    $advert->setAuthor(
+      array_rand(array(
+        'Alexandre' => 0,
+        'Hugo' => 0,
+        'Kantin' => 0,
+        'Marine' => 0,
+        'Mathieu' => 0
+      ))
+    );
+
+
+    // je selectionne aleatoirement un contenu
+    $advert->setContent(
+      array_rand(array(
+        "Nous recherchons un développeur Symfony débutant sur Lyon. Blabla…" => 0,
+        "Nous recherchons un webmaster capable de maintenir notre site internet. Blabla…" => 0,
+        "Nous proposons un poste pour webdesigner. Blabla…" => 0,
+        "On cherche quelqu'un de sympa. Blabla…" => 0,
+        "On cherche quelqu'un de cool. Blabla…" => 0,
+        "On cherche quelqu'un de bien. Blabla…" => 0
+      ))
+    );
 
     // Création de l'entité Image
     $image = new Image();
@@ -222,12 +233,10 @@ class AdvertController extends Controller
 
   public function menuAction($limit)
   {
-    // On fixe en dur une liste ici, bien entendu par la suite on la récupérera depuis la BDD !
-    $listAdverts = array(
-      array('id' => 8, 'title' => 'Recherche développeur Symfony'),
-      array('id' => 9, 'title' => 'Mission de webmaster'),
-      array('id' => 10, 'title' => 'Offre de stage webdesigner')
-    );
+
+    $em = $this->getDoctrine()->getManager();
+    // Je recupere les $limit dernieres annonces
+    $listAdverts = $em->getRepository('OCPlatformBundle:Advert')->findBy(array(), array('id' => 'DESC'), $limit, 0);
 
     return $this->render('OCPlatformBundle:Advert:menu.html.twig', array(
       // Tout l'intérêt est ici : le contrôleur passe les variables nécessaires au template !
