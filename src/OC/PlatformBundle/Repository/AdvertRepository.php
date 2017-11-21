@@ -94,7 +94,7 @@ class AdvertRepository extends EntityRepository
       // Jointure sur categories
       ->leftjoin('a.categories', 'c')
       ->addSelect('c')
-      ->orderBy('a.date', 'DESC')
+      ->orderBy('a.date', 'ASC')
       ->getQuery()
     ;
 
