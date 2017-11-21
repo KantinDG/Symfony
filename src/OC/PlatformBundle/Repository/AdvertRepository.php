@@ -4,7 +4,7 @@ namespace OC\PlatformBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\QueryBuilder;
-use Doctrine\ORM\Pagination\Paginator;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 
 class AdvertRepository extends EntityRepository
 {
@@ -102,7 +102,7 @@ class AdvertRepository extends EntityRepository
     // On definit l'annonce a partir de laquelle commencer la liste
     ->setFirstResult(($page-1) * $nbPerPage)
     // On definit le nombre d'annonce a affcicher par page
-    ->setMaxResult($nbPerPage);
+    ->setMaxResults($nbPerPage);
 
     // On retourne l'objet paginator correspondant a la requete
     return new Paginator($query, true);

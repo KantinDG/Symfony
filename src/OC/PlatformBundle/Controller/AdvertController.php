@@ -25,9 +25,9 @@ class AdvertController extends Controller
     $nbPerPage = 3;
 
     // On recupere notre objet paginator
-    $listAdverts = $this-.getDoctrine()
+    $listAdverts = $this->getDoctrine()
       ->getmanager()
-      ->getRepository()
+      ->getRepository('OCPlatformBundle:Advert')
       ->getAdverts($page, $nbPerPage)
     ;
 
@@ -35,12 +35,14 @@ class AdvertController extends Controller
     $nbPages = ceil(count($listAdverts) / $nbPerPage);
 
 
-    if ($page > $nbPage) {
+    if ($page > $nbPages) {
       throw new NotFoundHttpException('Page "'.$page.'" inexistante.');
     }
 
     return $this->render('OCPlatformBundle:Advert:index.html.twig', array(
       'listAdverts' => $listAdverts,
+      'nbPages'     => $nbPages,
+      'page'        => $page,
     ));
   }
 
