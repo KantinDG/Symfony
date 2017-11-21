@@ -1,4 +1,5 @@
 <?php
+// src/OC/PlatformBundle/Repository/AdvertRepository.php
 
 namespace OC\PlatformBundle\Repository;
 
@@ -8,6 +9,41 @@ use Doctrine\ORM\Tools\Pagination\Paginator;
 
 class AdvertRepository extends EntityRepository
 {
+  public function getAdvertsBefore(\Datetime $date)
+  {
+    return $this->createQueryBuilder('a')
+      ->where('a.updatedAt <= :date')                      // Date de modification antérieure à :date
+      ->orWhere('a.updatedAt IS NULL AND a.date <= :date') // Si la date de modification est vide, on vérifie la date de création
+      ->andWhere('a.applications IS EMPTY')                // On vérifie que l'annonce ne contient aucune candidature
+      ->setParameter('date', $date)
+      ->getQuery()
+      ->getResult()
+      ;
+  }
+
+  public function getAdverts($page, $nbPerPage)
+  {
+    $query = $this->createQueryBuilder('a')
+      ->leftJoin('a.image', 'i')
+      ->addSelect('i')
+      ->leftJoin('a.categories', 'c')
+      ->addSelect('c')
+      ->orderBy('a.date', 'DESC')
+      ->getQuery()
+    ;
+
+    $query
+      // On définit l'annonce à partir de laquelle commencer la liste
+      ->setFirstResult(($page-1) * $nbPerPage)
+      // Ainsi que le nombre d'annonce à afficher sur une page
+      ->setMaxResults($nbPerPage)
+    ;
+
+    // Enfin, on retourne l'objet Paginator correspondant à la requête construite
+    // (n'oubliez pas le use correspondant en début de fichier)
+    return new Paginator($query, true);
+  }
+
   public function myFindAll()
   {
     // Méthode 1 : en passant par l'EntityManager
@@ -84,27 +120,5 @@ class AdvertRepository extends EntityRepository
       ->setParameter('start', new \Datetime(date('Y') . '-01-01')) // Date entre le 1er janvier de cette année
       ->setParameter('end', new \Datetime(date('Y') . '-12-31'))   // Et le 31 décembre de cette année
     ;
-  }
-
-  public function getAdverts($page, $nbPerPage) {
-    $query = $this->createQueryBuilder('a')
-      // Jointure sur image
-      ->leftjoin('a.image', 'i')
-      ->addSelect('i')
-      // Jointure sur categories
-      ->leftjoin('a.categories', 'c')
-      ->addSelect('c')
-      ->orderBy('a.date', 'ASC')
-      ->getQuery()
-    ;
-
-    $query
-    // On definit l'annonce a partir de laquelle commencer la liste
-    ->setFirstResult(($page-1) * $nbPerPage)
-    // On definit le nombre d'annonce a affcicher par page
-    ->setMaxResults($nbPerPage);
-
-    // On retourne l'objet paginator correspondant a la requete
-    return new Paginator($query, true);
   }
 }

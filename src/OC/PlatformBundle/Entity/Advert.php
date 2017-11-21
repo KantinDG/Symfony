@@ -1,15 +1,24 @@
 <?php
+// src/OC/PlatformBundle/Entity/Advert.php
 
 namespace OC\PlatformBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use OC\PlatformBundle\Validator\Antiflood;
+// On rajoute ce use pour la contrainte :
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+// N'oubliez pas de rajouter ce « use », il définit le namespace pour les annotations de validation
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Context\ExecutionContextInterface;
 
 /**
  * @ORM\Table(name="oc_advert")
  * @ORM\Entity(repositoryClass="OC\PlatformBundle\Repository\AdvertRepository")
  * @ORM\HasLifecycleCallbacks()
+ *
+ * @UniqueEntity(fields="title", message="Une annonce existe déjà avec ce titre.")
  */
 class Advert
 {
@@ -26,13 +35,15 @@ class Advert
    * @var \DateTime
    *
    * @ORM\Column(name="date", type="datetime")
+   * @Assert\DateTime()
    */
   private $date;
 
   /**
    * @var string
    *
-   * @ORM\Column(name="title", type="string", length=255)
+   * Et pour être logique, il faudrait aussi mettre la colonne titre en Unique pour Doctrine :
+   * @ORM\Column(name="title", type="string", length=255, unique=true)
    */
   private $title;
 
@@ -40,6 +51,7 @@ class Advert
    * @var string
    *
    * @ORM\Column(name="author", type="string", length=255)
+   * @Assert\Length(min=2)
    */
   private $author;
 
@@ -47,6 +59,8 @@ class Advert
    * @var string
    *
    * @ORM\Column(name="content", type="string", length=255)
+   * @Assert\NotBlank()
+   * @Antiflood()
    */
   private $content;
 
@@ -56,7 +70,8 @@ class Advert
   private $published = true;
 
   /**
-   * @ORM\OneToOne(targetEntity="OC\PlatformBundle\Entity\Image", cascade={"persist"})
+   * @ORM\OneToOne(targetEntity="OC\PlatformBundle\Entity\Image", cascade={"persist", "remove"})
+   * @Assert\Valid()
    */
   private $image;
 
@@ -72,9 +87,9 @@ class Advert
   private $applications; // Notez le « s », une annonce est liée à plusieurs candidatures
 
   /**
-   * @ORM\Column(name="update_at", type="datetime", nullable=true)
+   * @ORM\Column(name="updated_at", type="datetime", nullable=true)
    */
-  private $updateAt;
+  private $updatedAt;
 
   /**
    * @ORM\Column(name="nb_applications", type="integer")
@@ -82,14 +97,9 @@ class Advert
   private $nbApplications = 0;
 
   /**
-  * @ORM\Column(name="contact", type="string", length=255, nullable=true)
-  */
-  private $contact;
-
-  /**
-  * @Gedmo\Slug(fields={"title"})
-  * @ORM\Column(name="slug", type="string", length=255, unique=true)
-  */
+   * @Gedmo\Slug(fields={"title"})
+   * @ORM\Column(name="slug", type="string", length=255, unique=true)
+   */
   private $slug;
 
   public function __construct()
@@ -97,6 +107,42 @@ class Advert
     $this->date         = new \Datetime();
     $this->categories   = new ArrayCollection();
     $this->applications = new ArrayCollection();
+  }
+
+  /**
+   * @ORM\PreUpdate
+   */
+  public function updateDate()
+  {
+    $this->setUpdatedAt(new \Datetime());
+  }
+
+  public function increaseApplication()
+  {
+    $this->nbApplications++;
+  }
+
+  public function decreaseApplication()
+  {
+    $this->nbApplications--;
+  }
+
+  /**
+   * @Assert\Callback
+   */
+  public function isContentValid(ExecutionContextInterface $context)
+  {
+    $forbiddenWords = array('démotivation', 'abandon');
+
+    // On vérifie que le contenu ne contient pas l'un des mots
+    if (preg_match('#'.implode('|', $forbiddenWords).'#', $this->getContent())) {
+      // La règle est violée, on définit l'erreur
+      $context
+        ->buildViolation('Contenu invalide car il contient un mot interdit.') // message
+        ->atPath('content')                                                   // attribut de l'objet qui est violé
+        ->addViolation() // ceci déclenche l'erreur, ne l'oubliez pas
+      ;
+    }
   }
 
   /**
@@ -249,99 +295,50 @@ class Advert
   }
 
   /**
-  * @ORM\PreUpdate
-  */
-  public function updateDate()
+   * @param \DateTime $updatedAt
+   */
+  public function setUpdatedAt(\Datetime $updatedAt = null)
   {
-    $this->setUpdateAt(new \DateTime());
+      $this->updatedAt = $updatedAt;
   }
 
   /**
-   * @param int $number
+   * @return \DateTime
    */
-  public function setNbApplications(int $number)
+  public function getUpdatedAt()
   {
-    $this->nbApplications = $number;
+      return $this->updatedAt;
   }
 
+  /**
+   * @param integer $nbApplications
+   */
+  public function setNbApplications($nbApplications)
+  {
+      $this->nbApplications = $nbApplications;
+  }
 
+  /**
+   * @return integer
+   */
   public function getNbApplications()
   {
-    return $this->nbApplications;
+      return $this->nbApplications;
   }
-
-  public function increaseApplication()
-  {
-    $this->nbApplications++;
-  }
-
-  public function decreaseApplication()
-  {
-    $this->nbApplications--;
-  }
-
-  public function getContact()
-  {
-    return $this->contact;
-  }
-
 
   /**
-  * @param string $email
-  */
-  public function setContact(string $email)
+   * @param string $slug
+   */
+  public function setSlug($slug)
   {
-    $this->contact = $email;
+      $this->slug = $slug;
   }
 
-
-
-
-    /**
-     * Set updateAt
-     *
-     * @param \DateTime $updateAt
-     *
-     * @return Advert
-     */
-    public function setUpdateAt($updateAt)
-    {
-        $this->updateAt = $updateAt;
-
-        return $this;
-    }
-
-    /**
-     * Get updateAt
-     *
-     * @return \DateTime
-     */
-    public function getUpdateAt()
-    {
-        return $this->updateAt;
-    }
-
-    /**
-     * Set slug
-     *
-     * @param string $slug
-     *
-     * @return Advert
-     */
-    public function setSlug($slug)
-    {
-        $this->slug = $slug;
-
-        return $this;
-    }
-
-    /**
-     * Get slug
-     *
-     * @return string
-     */
-    public function getSlug()
-    {
-        return $this->slug;
-    }
+  /**
+   * @return string
+   */
+  public function getSlug()
+  {
+      return $this->slug;
+  }
 }

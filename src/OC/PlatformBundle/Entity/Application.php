@@ -46,6 +46,22 @@ class Application
   }
 
   /**
+   * @ORM\PrePersist
+   */
+  public function increase()
+  {
+    $this->getAdvert()->increaseApplication();
+  }
+
+  /**
+   * @ORM\PreRemove
+   */
+  public function decrease()
+  {
+    $this->getAdvert()->decreaseApplication();
+  }
+
+  /**
    * @return int
    */
   public function getId()
@@ -115,22 +131,5 @@ class Application
   public function getAdvert()
   {
     return $this->advert;
-  }
-
-  /**
-  * @ORM\PrePersist
-  */
-  public function increase()
-  {
-    $this->getAdvert()->increaseApplication();
-  }
-
-
-  /**
-  * @ORM\PreRemove
-  */
-  public function decrease()
-  {
-    $this->getAdvert()->decreaseApplication();
   }
 }
